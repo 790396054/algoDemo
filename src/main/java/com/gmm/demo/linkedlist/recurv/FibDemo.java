@@ -1,14 +1,66 @@
 package com.gmm.demo.linkedlist.recurv;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class FibDemo {
     static List<String> list = new ArrayList<>();
+
     public static void main(String[] args) {
 //        System.out.println(fib(10));
-        generate(3, 0, 0, "");
-        System.out.println(list);
+
+//        generate(3, 0, 0, "");
+//        System.out.println(list);
+//        int[] nums = new int[]{2, 5, 5, 1};
+//        System.out.println(Arrays.toString(twoSum2(nums, 10)));
+
+        System.out.println(climbStairs(10));
+    }
+
+    // https://leetcode-cn.com/problems/two-sum/
+    // 两数之和
+    public static int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int result = target - nums[i];
+            if (map.containsKey(result)) {
+                return new int[]{i, map.get(result)};
+            }
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("no result");
+    }
+
+    public static int climbStairs2(int n) {
+        if (n == 0) return 0;
+        int pre = 0, cur = 1;
+        for (int i = 1; i <= n; i++) {
+            cur = cur + pre;
+            pre = cur - pre;
+        }
+        return cur;
+    }
+
+    public static int climbStairs(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        int pre = 0, cur = 1;
+        for (int i = 0; i < n; i++) {
+            cur = cur + pre;
+            pre = cur - pre;
+        }
+        return cur;
+    }
+
+    public static int[] twoSum2(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        throw new IllegalArgumentException("no result");
     }
 
     public static int fib(int n) {
