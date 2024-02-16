@@ -2,8 +2,6 @@ package com.leetcode.array;
 
 import com.leetcode.utils.Utils;
 
-import java.io.*;
-
 /**
  * 283. 移动零
  * 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
@@ -12,22 +10,13 @@ import java.io.*;
  */
 public class MoveZeros {
 
-    public static void main(String[] args) throws IOException {
-        int[] nums = new int[]{0, 1, 0, 3, 12, 0, 222, 22, 1, 0, 3};
+    public static void main(String[] args) {
+        int[] nums = new int[]{ 1, 2,0, 3, 12, 0, 222, 22, 1, 0, 3};
         Utils.printArr(nums);
 //        moveZeros1(nums);
 //        moveZeros2(nums);
-        moveZeros3(nums);
-        Utils.printArr(nums);
-//        char a= 0x47;
-//        File file = new File("/Users/didi/Desktop/abc.png");
-//        InputStream io = new FileInputStream(file);
-//        byte[] b = new byte[100];
-//        io.read(b);
-//        for (byte b1 : b) {
-//            System.out.print(b1);
-//        }
-//        io.close();
+        moveZeros2(nums);
+//        Utils.printArr(nums);
 
     }
 
