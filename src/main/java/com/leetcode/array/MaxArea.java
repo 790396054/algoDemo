@@ -16,7 +16,7 @@ public class MaxArea {
         System.out.println(maxArea);
     }
 
-    // 左右2 个指针，分别逼近，一次遍历即可
+    // O(N) 左右边界 left right ，向中间收敛：左右夹逼
     public static int maxArea3(int[] arr) {
         int maxArea = 0;
 
