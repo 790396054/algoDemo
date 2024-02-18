@@ -29,6 +29,7 @@ public class MaxArea {
         return maxArea;
     }
 
+    // 暴力解法，2 层循环
     public static int maxArea2(int[] arr) {
         int maxArea = 0;
         for (int i = 0; i < arr.length - 1; ++i) {
