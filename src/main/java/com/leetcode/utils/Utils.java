@@ -13,6 +13,10 @@ public class Utils {
         System.out.println(list);
     }
 
+    public static void printList(List num) {
+        System.out.println(num);
+    }
+
     public static void swap(int[] arr, int a, int b) {
         if (arr == null || arr.length == 0) {
             return;
