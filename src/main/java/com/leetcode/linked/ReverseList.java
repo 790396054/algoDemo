@@ -22,7 +22,7 @@ public class ReverseList {
 
         ListNodeUtil.printAll(node1);
 
-        ListNode reverseList = reverseList2(node1);
+        ListNode reverseList = reverseList1(node1);
         ListNodeUtil.printAll(reverseList);
     }
 

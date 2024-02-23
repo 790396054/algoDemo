@@ -26,11 +26,41 @@ public class DetectCycle {
         node3.next = node4;
         node4.next = node2;
 
-        ListNode listNode = detectCycle(head);
+        ListNode listNode = detectCycle2(head);
         System.out.println(listNode);
     }
 
-    public static ListNode detectCycle(ListNode head) {
+    // 方法二：快慢指针。关键是找到入环点
+    public static ListNode detectCycle2(ListNode head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+        ListNode slow = head, fast = head;
+        while (fast != null) {
+            slow = slow.next;
+            if (fast.next != null) {
+                fast = fast.next.next;
+            } else {
+                return null;
+            }
+
+            // 相遇了
+            if (slow == fast) {
+                // 链表头部定义一个指针，和慢指针相遇，找到入环点
+                ListNode ptr = head;
+                while (ptr != slow) {
+                    ptr = ptr.next;
+                    slow = slow.next;
+                }
+                return ptr;
+            }
+
+        }
+        return null;
+    }
+
+    // 方法一，哈希表
+    public static ListNode detectCycle1(ListNode head) {
         if (head == null || head.next == null) {
             return null;
         }
