@@ -23,10 +23,6 @@ public class Rotate {
         Utils.printArr(arr);
         rotate2(arr, 3);
         Utils.printArr(arr);
-        InetAddress[] allByName = InetAddress.getAllByName("xiaojukeji.com");
-        for (InetAddress inetAddress : allByName) {
-            System.out.println(inetAddress.toString());
-        }
     }
 
     // 三次反转， https://leetcode.cn/problems/rotate-array/solutions/683855/shu-zu-fan-zhuan-xuan-zhuan-shu-zu-by-de-5937/
