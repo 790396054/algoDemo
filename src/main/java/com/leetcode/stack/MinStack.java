@@ -1,5 +1,8 @@
 package com.leetcode.stack;
 
+import java.util.Map;
+import java.util.Stack;
+
 /**
  * 155. 最小栈
  * <a href="https://leetcode.cn/problems/min-stack/description/">...</a>
@@ -30,26 +33,42 @@ public class MinStack {
     // 用 2 个栈来实现。一个栈存放正常的数据，另一个栈存放最小元素的栈
     public static void main(String[] args) {
         MinStack minStack = new MinStack();
-
+        minStack.push(-2);
+        minStack.push(0);
+        minStack.push(-3);
+        int min = minStack.getMin(); // -3
+        System.out.println("min = " + min);
+        minStack.pop();
+        int top = minStack.top();//--> 返回 0.
+        System.out.println("top = " + top);
+        int min1 = minStack.getMin();// --> 返回 -2.
+        System.out.println("min1 = " + min1);
     }
 
-    public MinStack() {
+    private final Stack<Integer> normalStack;
+    private final Stack<Integer> minStack;
 
+    public MinStack() {
+        normalStack = new Stack<>();
+        minStack = new Stack<>();
+        minStack.push(Integer.MAX_VALUE);
     }
 
     public void push(int val) {
-
+        normalStack.push(val);
+        minStack.push(Math.min(minStack.peek(), val));
     }
 
     public void pop() {
-
+        normalStack.pop();
+        minStack.pop();
     }
 
     public int top() {
-        return 0;
+        return normalStack.peek();
     }
 
     public int getMin() {
-        return 0;
+        return minStack.peek();
     }
 }
