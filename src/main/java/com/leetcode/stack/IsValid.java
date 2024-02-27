@@ -1,4 +1,4 @@
-package com.leetcode.queue;
+package com.leetcode.stack;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,8 +21,8 @@ public class IsValid {
     // 1 暴力解法，不断replace匹配的括号 -> ''
     // 2 栈来解决
     public static void main(String[] args) {
-        String s = "(){}()()[][][][[]]]";
-        boolean valid = isValid(s);
+        String s = "(){}()()[][][][[]][ ]";
+        boolean valid = isValid10(s);
         System.out.println(valid);
     }
 
@@ -34,8 +34,38 @@ public class IsValid {
         map.put('?', '?');
     }
 
+    private static boolean isValid10(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (Character c : s.toCharArray()) {
+            if (c == '(') {
+                stack.push(')');
+            } else if (c == '[') {
+                stack.push(']');
+            } else if (c == '{') {
+                stack.push('}');
+            } else if (stack.isEmpty() || stack.pop() != c) {
+                return false;
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    private static boolean isValid0(String s) {
+        while (!s.isEmpty()) {
+            int tmp = s.length();
+            s = s.replace("()", "");
+            s = s.replace("[]", "");
+            s = s.replace("{}", "");
+            // 说明没有替换，且字符串长度大于 0。不是有效的括号
+            if (tmp == s.length()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     // 方法一：暴力解法
-    public static boolean isValid(String s) {
+    public static boolean isValid1(String s) {
         while (true) {
             int l = s.length();
             s = s.replace("()", "");
@@ -60,5 +90,22 @@ public class IsValid {
             }
         }
         return stack.size() == 1;
+    }
+
+    // 方法三，栈的另一种写法
+    public static boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (Character c : s.toCharArray()) {
+            if (c == '(') {
+                stack.push(')');
+            } else if (c == '[') {
+                stack.push(']');
+            } else if (c == '{') {
+                stack.push('}');
+            } else if (stack.isEmpty() || stack.pop() != c) {
+                return false;
+            }
+        }
+        return stack.isEmpty();
     }
 }
