@@ -1,5 +1,7 @@
 package com.leetcode.queue;
 
+import java.util.HashSet;
+
 /**
  * 622. 设计循环队列
  * <a href="https://leetcode.cn/problems/design-circular-queue/">...</a>
@@ -54,6 +56,9 @@ public class MyCircularQueue {
         }
         elements[rear] = value;
         rear = (rear + 1) % capacity;
+        HashSet<String> set = new HashSet<>();
+        boolean add = set.add("123");
+
         return true;
     }
 

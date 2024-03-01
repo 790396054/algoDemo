@@ -20,7 +20,7 @@ public class TwoSum {
     public static void main(String[] args) {
         int[] nums = {2, 5, 5, 11};
         int target = 100;
-        int[] result = twoSum1(nums, target);
+        int[] result = twoSum2(nums, target);
         Utils.printArr(result);
     }
 
@@ -35,7 +35,7 @@ public class TwoSum {
                 result[1] = i;
                 break;
             }
-            map.put(minus, i);
+            map.put(nums[i], i);
         }
         return result;
     }
