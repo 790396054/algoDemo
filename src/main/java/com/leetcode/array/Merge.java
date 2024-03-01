@@ -29,9 +29,7 @@ public class Merge {
     }
 
     public static void merge0(int[] nums1, int m, int[] nums2, int n) {
-        for (int j : nums2) {
-            nums1[m++] = j;
-        }
+        System.arraycopy(nums2, 0, nums1, m, n);
         Arrays.sort(nums1);
     }
 

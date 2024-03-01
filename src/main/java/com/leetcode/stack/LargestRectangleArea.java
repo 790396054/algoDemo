@@ -14,11 +14,12 @@ import java.util.Stack;
 public class LargestRectangleArea {
 
     public static void main(String[] args) {
-        int[] heights = {2, 1};
+        int[] heights = {1}; // 10
         int area = largestRectangleArea3(heights);
         System.out.println(area);
     }
 
+    // 单栈的解法
     public static int largestRectangleArea3(int[] heights) {
         int maxArea = 0;
         Stack<Integer> stack = new Stack<>();

@@ -51,6 +51,7 @@ public class MaxSlidingWindow {
         return res;
     }
 
+    // 暴力求解。
     public static int[] maxSlidingWindow(int[] nums, int k) {
         int[] res = new int[nums.length - k + 1];
         int[] temp = new int[k];
