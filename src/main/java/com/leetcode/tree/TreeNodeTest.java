@@ -24,7 +24,7 @@ public class TreeNodeTest {
         System.out.println("===后续遍历 左 右 根===");
         root.postOrder(root);
 
-        TreeNode tt = tt();
+        TreeNode tt = bst();
         System.out.println("==中==");
         tt.inOrder(tt);
         System.out.println("==前==");
@@ -33,7 +33,7 @@ public class TreeNodeTest {
         tt.postOrder(tt);
     }
 
-    public static TreeNode tt() {
+    public static TreeNode bst() {
         TreeNode root = new TreeNode(41);
         TreeNode left1 = new TreeNode(20);
         TreeNode right1 = new TreeNode(65);

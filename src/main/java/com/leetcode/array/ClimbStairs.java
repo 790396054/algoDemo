@@ -14,7 +14,14 @@ package com.leetcode.array;
  */
 public class ClimbStairs {
     public static void main(String[] args) {
-        System.out.println(climbStairs(4));
+        int n = 45;
+        long a = System.currentTimeMillis();
+        System.out.println(climbStairs(n));
+        long b = System.currentTimeMillis();
+        System.out.println(b - a);
+        int[] memo = new int[n + 1];
+        System.out.println(climbStairs2(n, memo));
+        System.out.println(System.currentTimeMillis() - b);
     }
 
     // 找最近重复子问题
@@ -29,7 +36,7 @@ public class ClimbStairs {
         }
         int f1 = 1;
         int f2 = 2;
-        int f3 = 3;
+        int f3 = 0;
 
         for (int i = 3; i < n + 1; i++) {
             f3 = f1 + f2;
@@ -37,5 +44,15 @@ public class ClimbStairs {
             f2 = f3;
         }
         return f3;
+    }
+
+    public static int climbStairs2(int n, int[] memo) {
+        if (n <= 2) {
+            return n;
+        }
+        if (memo[n] != 0) {
+            return memo[n]; // 之前计算过，直接返回
+        }
+        return memo[n] = climbStairs2(n - 1, memo) + climbStairs2(n - 2, memo); // 记忆化
     }
 }

@@ -5,7 +5,6 @@ import com.leetcode.linked.ListNodeUtil;
 
 public class GlobalTest {
 
-    static ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
     public static void main(String[] args) {
         ListNode node5 = new ListNode(5, null);
         ListNode node4 = new ListNode(4, node5);
