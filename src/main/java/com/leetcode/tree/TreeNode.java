@@ -12,7 +12,7 @@ public class TreeNode {
         if (root == null) {
             return;
         }
-        System.out.println("root.val = "+ root.val);
+        System.out.println("root.val = " + root.val);
         preOrder(root.left);
         preOrder(root.right);
     }
@@ -62,5 +62,18 @@ public class TreeNode {
         this.val = val;
         this.left = null;
         this.right = null;
+    }
+
+    public TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+
+    @Override
+    public String toString() {
+        return "TreeNode{" +
+                "val=" + val +
+                '}';
     }
 }

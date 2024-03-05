@@ -33,31 +33,24 @@ public class TreeNodeTest {
         tt.postOrder(tt);
     }
 
+    /**
+     *
+     *
+     *
+     *
+     */
     public static TreeNode bst() {
-        TreeNode root = new TreeNode(41);
-        TreeNode left1 = new TreeNode(20);
-        TreeNode right1 = new TreeNode(65);
         TreeNode left2 = new TreeNode(11);
-        TreeNode right2 = new TreeNode(29);
         TreeNode right3 = new TreeNode(32);
         TreeNode left3 = new TreeNode(50);
-        TreeNode right4 = new TreeNode(91);
         TreeNode left4 = new TreeNode(72);
         TreeNode right5 = new TreeNode(99);
 
-        root.left = left1;
-        root.right = right1;
-
-        left1.left = left2;
-        left1.right = right2;
-
-        right2.right = right3;
-
-        right1.left = left3;
-        right1.right = right4;
-
-        right4.left = left4;
-        right4.right = right5;
+        TreeNode right4 = new TreeNode(91, left4, right5);
+        TreeNode right1 = new TreeNode(65, left3, right4);
+        TreeNode right2 = new TreeNode(29, null, right3);
+        TreeNode left1 = new TreeNode(20, left2, right2);
+        TreeNode root = new TreeNode(41,left1, right1);
 
         return root;
     }
