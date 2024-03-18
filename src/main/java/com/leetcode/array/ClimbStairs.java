@@ -14,7 +14,7 @@ package com.leetcode.array;
  */
 public class ClimbStairs {
     public static void main(String[] args) {
-        int n = 45;
+        int n = 2;
         long a = System.currentTimeMillis();
         System.out.println(climbStairs(n));
         long b = System.currentTimeMillis();

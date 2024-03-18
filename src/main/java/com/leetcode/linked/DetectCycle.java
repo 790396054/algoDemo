@@ -61,14 +61,10 @@ public class DetectCycle {
 
     // 方法一，哈希表
     public static ListNode detectCycle1(ListNode head) {
-        if (head == null || head.next == null) {
-            return null;
-        }
+        if (head == null || head.next == null) return null;
         Set<ListNode> set = new HashSet<>();
         while (head != null) {
-            if (!set.add(head)) {
-                return head;
-            }
+            if (!set.add(head)) return head;
             head = head.next;
         }
         return null;
