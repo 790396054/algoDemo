@@ -20,7 +20,7 @@ package com.leetcode.array;
 public class IisHappy {
 
     public static void main(String[] args) {
-        int n = 19;
+        int n = 2;
         System.out.println(isHappy(n));
     }
 

@@ -10,7 +10,7 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 
-public class FileTest {
+public class FileTest<T> {
     public static void main(String[] args) {
 //        io1();
 //        io2();

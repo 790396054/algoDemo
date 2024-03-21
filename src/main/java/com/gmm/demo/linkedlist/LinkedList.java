@@ -12,6 +12,11 @@ public class LinkedList {
         Node c = new Node(3, b);
         Node d = new Node(4, c);
         Node e = new Node(5, d);
+
+        FileTest<String>[] a1 = new FileTest[12];
+        a1[0] = new FileTest<>();
+        Object[] a2 = a1;
+        a2[1] = "";
         a.next = e;
 //        printAll(e);
 
