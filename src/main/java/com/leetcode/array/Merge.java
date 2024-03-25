@@ -24,7 +24,7 @@ public class Merge {
         int n = 3;
         Utils.printArr(nums1);
         Utils.printArr(nums2);
-        merge0(nums1, m, nums2, n);
+        merge1(nums1, m, nums2, n);
         Utils.printArr(nums1);
     }
 
@@ -33,17 +33,39 @@ public class Merge {
         Arrays.sort(nums1);
     }
 
+    // 正向双指正。新建一个数组，从前往后遍历，按大小，放入新的数组，最后将结果复制到 nums1 中
+    public static void merge1(int[] nums1, int m, int[] nums2, int n) {
+        int[] sorted = new int[m + n];
+        int curr;
+        int p = 0, q = 0;
+        while (p < m || q < n) {
+            if (p == m) {
+                curr = nums2[q++];
+            } else if (q == n) {
+                curr = nums1[p++];
+            } else if (nums1[p] < nums2[q]) {
+                curr = nums1[p++];
+            } else {
+                curr = nums2[q++];
+            }
+
+            sorted[p + q - 1] = curr;
+        }
+
+        // 讲排好序的数组，再复制回原数组
+        System.arraycopy(sorted, 0, nums1, 0, nums1.length);
+    }
+
     // 把 nums2 的元素按要求插入nums1 中。
+    // 逆向双指正， 从后往前遍历，这样可以不使用额外的空间
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
         int i = nums1.length - 1;
         m--;
         n--;
         while (n >= 0) {
-            // 将 nums1 的元素，较大的元素往后放
             while (m >= 0 && nums1[m] > nums2[n]) {
                 nums1[i--] = nums1[m--];
             }
-            // 将 nums2 的较大的元素放入到 nums1 中
             nums1[i--] = nums2[n--];
         }
     }
